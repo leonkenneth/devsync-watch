@@ -26,7 +26,7 @@ type Publication struct {
 }
 
 func token() string {
-	cmd := exec.Command("heroku", "config:get", "DEVSYNC")
+	cmd := exec.Command("heroku", "config:get", "DEVSYNC_TOKEN", "--app", os.Args[1])
 	output, _ := cmd.CombinedOutput()
 
 	return strings.TrimSpace(string(output))
